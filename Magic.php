@@ -53,14 +53,14 @@
 <body>
     <div class="container">
         <div class="row">
-            <h1 class="col-sm-12 col-lg-5 text-center font-weight-bold">Le Nombre Magique</h1>
+            <h1 class="col-12 offset-lg-3 col-lg-6 text-center font-weight-bold">Le Nombre Magique</h1>
         </div>
         <?php
             if ($gagne)
             {
         ?>
             <div class="row">
-                <div class="col-sm-12 col-lg-5 alert alert-success">
+                <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-success">
                     <h2 class="text-success font-weight-bold text-center"><i class="fas fa-trophy"></i> BRAVO <i class="fas fa-trophy"></i></h2>
                     <p>C'est gagné !!<br></p>
                     <p><?php echo $TableauVariables["MagiqueN"]; ?> était bien le nombre magique.<br></p>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="" method="POST" class="col-sm-12 col-lg-5" validate>
+                <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4" validate>
                     <div class="form-group">
                         <input type="hidden" name="again" id="again" value="letsgo" required>
                         <button type="submit" class="btn btn-info btn-block" autofocus>
@@ -93,7 +93,7 @@
             $ExReg = $ExReg."code)";
             ?>
             <div class="row">
-                <div class="col-sm-12 col-lg-5 alert alert-warning">
+                <div class="offset-2 col-8 offset-md-3 col-md-6 offset-lg-4 col-lg-4 alert alert-warning">
                     <h2 class="text-center font-weight-bold">
                         <?php if ($TableauVariables["Min"] == 0) { ?>
                         1
@@ -114,7 +114,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="" method="POST" class="col-sm-12 col-lg-5 alert alert-info" validate>
+                <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-info" validate>
                     <div class="form-group text-center">
                         <label for="essai">Vous proposez ?</label>
                         <input type="tel" name="essai" id="essai" pattern="<?php echo $ExReg; ?>" minlength="1" maxlength="3" class="form-control" autocomplete="off" autofocus required>
@@ -127,7 +127,7 @@
                 </form>
             </div>
             <div class="row">
-                <form action="" method="POST" class="col-sm-12 col-lg-5" validate>
+                <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4" validate>
                     <div class="form-group">
                         <input type="hidden" name="again" id="again" value="letsgo" required>
                         <button type="submit" class="btn btn-info" autofocus>

@@ -62,17 +62,17 @@
 <body>
     <div class="container">
         <div class="row">
-            <h1 class="col-sm-12 col-lg-5 text-center font-weight-bold">Le Nombre Magique</h1>
+            <h1 class="col-12 offset-lg-3 col-lg-6 text-center font-weight-bold">Le Nombre Magique</h1>
         </div>
         <div class="row">
-            <h3 class="col-sm-12 col-lg-5 text-center text-muted">Multijoueur</h3>
+            <h3 class="col-12 offset-lg-3 col-lg-6 text-center text-muted">Multijoueur</h3>
         </div>
         <?php
             if ($gagne)
             {
         ?>
             <div class="row">
-                <div class="col-sm-12 col-lg-5 alert alert-success">
+                <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-success">
                     <h2 class="text-success font-weight-bold text-center"><i class="fas fa-trophy"></i> BRAVO <i class="fas fa-trophy"></i></h2>
                     <?php if ($TableauVariables["Joueur"] == 1) { ?>
                         <h3 class="text-primary font-weight-bold text-center"><i class="far fa-user"></i> Joueur 1 <i class="far fa-user"></i></h3>
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="" method="POST" class="col-sm-12 col-lg-5" validate>
+                <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4" validate>
                     <div class="form-group">
                         <input type="hidden" name="again" id="again" value="letsgo" required>
                         <button type="submit" class="btn btn-info btn-block" autofocus>
@@ -110,7 +110,7 @@
             $ExReg = $ExReg."code)";
             ?>
             <div class="row">
-                <div class="col-sm-12 col-lg-5 alert alert-warning">
+                <div class="offset-2 col-8 offset-md-3 col-md-6 offset-lg-4 col-lg-4 alert alert-warning">
                     <h2 class="text-center font-weight-bold">
                         <?php if ($TableauVariables["Min"] == 0) { ?>
                         1
@@ -132,14 +132,14 @@
             </div>
             <div class="row">
             <?php if ($TableauVariables["Joueur"] == 1) { ?>
-                <form action="" method="POST" class="col-sm-12 col-lg-5 alert alert-primary" validate>
+                <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-primary" validate>
                     <h2 class="text-center">
                         <i class="fas fa-user"></i>
                         Joueur 1
                     </h2>
                     <div class="form-group text-center">
             <?php } else { ?>
-                <form action="" method="POST" class="col-sm-12 col-lg-5 alert alert-danger" validate>
+                <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-danger" validate>
                     <h2 class="text-center">
                         <i class="fas fa-user"></i>
                         Joueur 2
@@ -157,7 +157,7 @@
                 </form>
             </div>
             <div class="row">
-                <form action="" method="POST" class="col-sm-12 col-lg-5" validate>
+                <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4" validate>
                     <div class="form-group">
                         <input type="hidden" name="again" id="again" value="letsgo" required>
                         <button type="submit" class="btn btn-info" autofocus>
