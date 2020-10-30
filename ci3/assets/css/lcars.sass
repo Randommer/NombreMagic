@@ -1,0 +1,218 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald|Roboto)
+$contexts: system #C3A94B, alert #B4463C, info #2F7B8E, confirm #37A456
+$bg-color: black
+$text-color: white
+$font-size: 16px
+$border-width: 20px
+$default-color: #5E5BC8
+$alert-color: #B4463C
+$system-color: #C3A94B
+$confirm-color: #37A456
+$control-color: yellow
+$lighten-amount: 10%
+$button-default-radius: 5px
+$button-end-radius: 25px
+$elbow-radius: $button-end-radius + 20px
+$button-sides: left right
+
+@mixin contexts
+  @each $type in $contexts
+    $type-name: nth($type,1)
+    $color: nth($type,2)
+    &.#{$type-name}
+      background-color: $color
+      &:hover
+        background-color: lighten($color,$lighten-amount)
+
+@mixin button-styles
+  font-family: Oswald,sans-serif
+  font-size: 1.2em
+  background-color: $default-color
+  margin: 3px
+  padding: 10px 20px
+  border-radius: $button-default-radius
+  border: none
+  &:hover
+    background-color: lighten($default-color, 10%)
+  @each $side in $button-sides
+    &.lcars-#{$side}
+      border-bottom-#{$side}-radius: $button-end-radius
+      border-top-#{$side}-radius: $button-end-radius
+
+body
+  background-color: $bg-color
+  color: $text-color
+  font-family: Roboto,Arial,sans-serif
+  font-size: $font-size
+
+.lcars-container
+  display: flex
+  border-top: $border-width solid $default-color
+  border-bottom: $border-width solid $default-color
+  border-left: $border-width + ($border-width * .5) solid $default-color
+  border-top-left-radius: $elbow-radius
+  border-bottom-left-radius: $elbow-radius
+  padding: 10px 10px 15px 15px
+  display: inline-block
+  &.closed
+    border-right: $border-width solid $default-color
+    border-top-right-radius: $elbow-radius
+    border-bottom-right-radius: $elbow-radius
+  &.lcars-radio-group
+    display: block
+    border-width: 3px
+    padding: 20px
+    margin: 10px
+
+h1,h2,h3
+  color: white
+  background-color: black
+  font-family: Oswald, sans-serif
+  padding: 3px
+  margin: 3px 0
+  text-align: left
+  border-bottom: 3px solid $default-color
+  @each $type in $contexts
+    $context: nth($type,1)
+    $color: nth($type,2)
+    &.#{$context}
+      border-bottom: 3px solid $color
+
+ul
+  list-style: circle
+
+
+p,li
+  border-left: 2px solid $default-color
+  padding: 3px 3px 3px 5px
+  @each $type in $contexts
+    $context: nth($type,1)
+    $color: nth($type,2)
+    &.#{$context}
+      border-left: 2px solid $color
+button
+  +button-styles
+  +contexts
+
+.lcars-nav-menu, .lcars-dropdown
+  padding: 0
+  list-style-type: none
+
+.lcars-dropdown
+  display: none
+  // background-color: $bg-color
+
+.lcars-dropdown-item
+  color: $text-color
+
+.lcars-accordion
+  @extend .lcars-container
+  border-width: $border-width * 0.3
+  &.closed
+    border-right: $border-width * 0.3  solid $default-color
+    border-top-right-radius: $elbow-radius
+    border-bottom-right-radius: $elbow-radius
+
+.lcars-accordion-heading
+  cursor: pointer
+
+.lcars-accordion-content
+  display: none
+
+li.lcars-nav-item
+  +button-styles
+  +contexts
+  display: inline-block
+  & a
+    // font-size: $font-size
+    color: $bg-color
+    text-decoration: none
+    &:hover
+      color: $text-color
+
+
+blockquote
+  &:before
+    content: '\"'
+  &:after
+    content: '\"'
+  font-style: italic
+  font-size: 1.1em
+  margin-left: 15px
+  padding: 10px
+  border: 2px solid $default-color
+  border-radius: 5px
+  @each $context in $contexts
+    $type: nth($context,1)
+    $color: nth($context,2)
+    &.#{$type}
+      border-color: $color
+
+input
+  background-color: $bg-color
+  color: $text-color
+  font-family: Roboto, sans-serif
+  font-size: 1em
+  border: 2px solid $default-color
+  border-radius: 5px
+  padding: 10px 20px
+
+input[type=range]
+  -webkit-appearance: none /* Hides the slider so that custom slider can be made */
+  &::-webkit-slider-thumb
+    -webkit-appearance: none
+  padding: 5px
+  &:focus
+    outline: none /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+
+input[type=range]::-webkit-slider-thumb
+  -webkit-appearance: none
+  border: none
+  height: 25px
+  width: 15px
+  border-radius: 5px
+  background: $control-color
+  cursor: pointer
+  margin-top: 0 /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+
+input[type=range]::-webkit-slider-runnable-track
+  background: #323232
+  transition: all .2s
+input[type=range]:focus::-webkit-slider-runnable-track
+  background: lighten(#323232,10%)
+
+label
+  &.lcars-form-label
+    @extend button
+    color: black
+    & input
+      display: none
+    &.checked
+      color: $text-color
+  &.lcars-select-label
+    border: 3px solid $default-color
+    border-radius: 5px
+    padding: $font-size 0
+    margin: 10px
+    & aside
+      font-family: Oswald,sans-serif
+
+select,option
+  border: none
+  font-size: $font-size
+  font-family: Oswald, sans-serif
+  background-color: $bg-color
+  color: $text-color
+  padding: 5px
+  margin: 0
+  text-align: center
+  &:focus
+    border: none
+
+svg.lcars-svg
+  width: 10px
+  height: $font-size
+  & rect.lcars-control
+    width: 100%
+    height: 100%
+    fill: rgb(0,0,0)

@@ -1,0 +1,26 @@
+Jeux du Nombre Magique.
+De Valentin Lengaigne
+
+Magic.php :
+le jeu du Nombre Magique écrit entièrement en PHP.
+
+Magics.php :
+le jeu du Nombre Magique à deux joueurs écrit entièrement en PHP. (pas encore commenté)
+quand le jeu commence, il choisi au hasard si le Joueur 1 ou 2 commence.
+
+Scores.php :
+petite feuille de scores entièrement en PHP, avec mémoire stockée d'un POST à l'autre, tout est perdu en cas de rechargement. (pas encore commenté)
+
+ci3 :
+le jeu du Nombre Magique sous CodeIgniter 3. (pas encore commenté)
+l'interaction avec les données session est fait dans un Modèle
+plusieurs vues disponibles des affichages du jeu différents (light et dark mode)
+//à ajouter:
+-bouton de transition light > dark et dark > light
+-écrire la version deux joueurs
+
+ci4 :
+le jeu du Nombre Magique sous CodeIgniter 4. (pas encore commenté)
+transposition d'une version de ci3 en CodeIgniter 4
+session gérée dans un Modèle
+qu'une vue disponible (light mode)
