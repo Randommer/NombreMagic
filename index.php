@@ -22,7 +22,7 @@
                 <h2 class="text-primary font-weight-bold text-center">Magic.php</h2>
                 <p>Codé entièrement en PHP.</p>
                 <a href="./Magic.php">
-                    <button class="btn btn-primary btn-block" autofocus>
+                    <button class="btn btn-primary btn-block">
                             <i class="fas fa-rocket"></i> Tester
                     </button>
                 </a>
@@ -33,7 +33,7 @@
                 <h2 class="text-danger font-weight-bold text-center">Magics.php</h2>
                 <p>Codé entièrement en PHP pour jouer à deux.</p>
                 <a href="./Magics.php">
-                    <button class="btn btn-danger btn-block" autofocus>
+                    <button class="btn btn-danger btn-block">
                             <i class="fas fa-rocket"></i> Tester
                     </button>
                 </a>
@@ -44,7 +44,7 @@
                 <h2 class="text-success font-weight-bold text-center">ci3</h2>
                 <p>Codé avec CodeIgniter 3.</p>
                 <a href="./ci3/">
-                    <button class="btn btn-success btn-block" autofocus>
+                    <button class="btn btn-success btn-block">
                             <i class="fas fa-rocket"></i> Tester
                     </button>
                 </a>
@@ -55,7 +55,7 @@
                 <h2 class="text-info font-weight-bold text-center">Scores.php</h2>
                 <p>Codé entièrement en PHP sans mémoire session.</p>
                 <a href="./Scores.php">
-                    <button class="btn btn-info btn-block" autofocus>
+                    <button class="btn btn-info btn-block">
                             <i class="fas fa-rocket"></i> Tester
                     </button>
                 </a>
@@ -66,7 +66,7 @@
                 <h2 class="text-warning font-weight-bold text-center">ci4</h2>
                 <p>Codé avec CodeIgniter 4. (ne fonctionne pas sur dev.amorce.org)</p>
                 <a href="./ci4/public/">
-                    <button class="btn btn-warning btn-block" autofocus>
+                    <button class="btn btn-warning btn-block">
                             <i class="fas fa-rocket"></i> Tester
                     </button>
                 </a>
