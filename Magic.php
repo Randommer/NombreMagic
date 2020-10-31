@@ -135,7 +135,7 @@
                         <?php } ?>
                         <i class="fas fa-question"></i>
                         <?php //affichage de la valeur limite haute
-                        //si la limite haute est celle de défaut, on affiche ≤ avec 100 
+                        //si la limite haute est celle de défaut, on affiche ≤ avec 100
                         if ($TableauVariables["Max"] == 101) { ?>
                         <i class="fas fa-less-than-equal"></i>
                         100
