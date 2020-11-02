@@ -20,7 +20,7 @@ plusieurs vues disponibles des affichages du jeu différents (light et dark mode
 -écrire la version deux joueurs
 
 Scores.php :
-petite feuille de scores entièrement en PHP, avec mémoire stockée d'un POST à l'autre, tout est perdu en cas de rechargement. (pas encore commenté)
+petite feuille de scores entièrement en PHP, avec mémoire stockée d'un POST à l'autre, tout est perdu en cas de rechargement.
 
 ci4 :
 le jeu du Nombre Magique sous CodeIgniter 4. (pas encore commenté)
