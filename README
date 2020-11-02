@@ -23,7 +23,7 @@ Scores.php :
 petite feuille de scores entièrement en PHP, avec mémoire stockée d'un POST à l'autre, tout est perdu en cas de rechargement.
 
 ci4 :
-le jeu du Nombre Magique sous CodeIgniter 4. (pas encore commenté)
+le jeu du Nombre Magique sous CodeIgniter 4.
 transposition d'une version de ci3 en CodeIgniter 4
 session gérée dans un Modèle
 qu'une vue disponible (light mode)

@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-primary">
+            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 alert alert-primary">
                 <h2 class="text-primary font-weight-bold text-center">Magic.php</h2>
                 <p>Codé entièrement en PHP.</p>
                 <a href="./Magic.php">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-danger">
+            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 alert alert-danger">
                 <h2 class="text-danger font-weight-bold text-center">Magics.php</h2>
                 <p>Codé entièrement en PHP pour jouer à deux.</p>
                 <a href="./Magics.php">
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-success">
+            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 alert alert-success">
                 <h2 class="text-success font-weight-bold text-center">ci3</h2>
                 <p>Codé avec CodeIgniter 3.</p>
                 <a href="./ci3/">
@@ -53,22 +53,22 @@
             </div>
         </div>
         <div class="row">
-            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-info">
-                <h2 class="text-info font-weight-bold text-center">Scores.php</h2>
-                <p>Codé entièrement en PHP sans mémoire session.</p>
-                <a href="./Scores.php">
-                    <button class="btn btn-info btn-block">
+            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 alert alert-warning">
+                <h2 class="text-warning font-weight-bold text-center">ci4</h2>
+                <p>Codé avec CodeIgniter 4.</p>
+                <a href="./ci4/public/">
+                    <button class="btn btn-warning btn-block">
                             <i class="fas fa-rocket"></i> Tester
                     </button>
                 </a>
             </div>
         </div>
         <div class="row">
-            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-warning">
-                <h2 class="text-warning font-weight-bold text-center">ci4</h2>
-                <p>Codé avec CodeIgniter 4. (ne fonctionne pas sur dev.amorce.org)</p>
-                <a href="./ci4/public/">
-                    <button class="btn btn-warning btn-block">
+            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 alert alert-info">
+                <h2 class="text-info font-weight-bold text-center">Scores.php</h2>
+                <p>Codé entièrement en PHP sans mémoire session.</p>
+                <a href="./Scores.php">
+                    <button class="btn btn-info btn-block">
                             <i class="fas fa-rocket"></i> Tester
                     </button>
                 </a>

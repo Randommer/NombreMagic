@@ -47,7 +47,7 @@ class Magic extends CI_Controller
                         //on change la valeur limite haute de la plage où se trouve le nombre à trouver
                         $TableauVariables["Max"] = $this->input->post("essai");
                     }
-                    else //si l'essai n'est pas plus grand, donc il est plus petit.
+                    else //si l'essai n'est pas plus grand, donc il est plus petit
                     {
                         //on change la valeur limite basse de la plage où se trouve le nombre à trouver
                         $TableauVariables["Min"] = $this->input->post("essai");

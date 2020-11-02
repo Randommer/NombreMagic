@@ -35,8 +35,8 @@ class MagicModel extends CI_Model
     public function delete()
     {
         //on vide les variables de la session
+        // $this->session->unset_userdata("MagicTab");
         $_SESSION = array();
-        $this->session->unset_userdata("MagicTab");
         //on détruit la session
         $this->session->sess_destroy();
     }
