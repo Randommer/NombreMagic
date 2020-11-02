@@ -17,3 +17,6 @@
         <div class="row">
             <h1 class="col-12 offset-lg-3 col-lg-6 text-center font-weight-bold">Le Nombre Magique</h1>
         </div>
+        <div class="row">
+            <h2 class="offset-2 col-8 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-right"><a class="text-warning" href="<?php echo site_url("Magic/jeu/Dark"); ?>" title="Passer en mode Dark"><i class="far fa-lightbulb"></i></a></h2>
+        </div>

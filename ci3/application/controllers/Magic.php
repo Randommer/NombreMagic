@@ -5,9 +5,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Magic extends CI_Controller 
 {
-
     public function index()
     {
+        $this->jeu();
+    }
+
+    public function jeu($theme = '')
+    {
+        if ($theme == 'Dark')
+        {
+            $theme = "-st";
+        }
         //initialisation de la session (maintenant fait en autoload)
         //$this->load->library(['session']);
 
@@ -63,12 +71,12 @@ class Magic extends CI_Controller
         if($gagne)
         {
             //chargement de la view header.php
-            $this->load->view('header');
+            $this->load->view('header'.$theme);
             //chargement de la view win.php avec le tableau associatif
             $aView = ["TableauVariables" => $TableauVariables];
-            $this->load->view('win', $aView);
+            $this->load->view('win'.$theme, $aView);
             //chargement de la view footer.php
-            $this->load->view('footer');
+            $this->load->view('footer'.$theme);
 
             //on nettoie la session car la partie est gagnée
             $this->MagicModel->delete();
@@ -88,12 +96,12 @@ class Magic extends CI_Controller
             $ExReg = $ExReg."code)";
 
             //chargement de la view header.php
-            $this->load->view('header');
+            $this->load->view('header'.$theme);
             //chargement de la view play.php avec le tableau associatif
             $aView = ["TableauVariables" => $TableauVariables, "ExReg" => $ExReg];
-            $this->load->view('play', $aView);
+            $this->load->view('play'.$theme, $aView);
             //chargement de la view footer.php
-            $this->load->view('footer');
+            $this->load->view('footer'.$theme);
         }
     }
 }

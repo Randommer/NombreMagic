@@ -16,7 +16,6 @@ le jeu du Nombre Magique sous CodeIgniter 3.
 l'interaction avec les données session est fait dans un Modèle
 plusieurs vues disponibles des affichages du jeu différents (light et dark mode)
 //à ajouter:
--bouton de transition light > dark et dark > light
 -écrire la version deux joueurs
 
 Scores.php :

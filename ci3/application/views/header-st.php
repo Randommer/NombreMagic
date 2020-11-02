@@ -21,3 +21,4 @@
 
                 <div class="lcars-container closed">
                     <h1 class="text-center lcars font-weight-bold">Le Nombre Magique</h1>
+                    <h2 class="none text-right"><a style="color:#5E5BC8" class="" href="<?php echo site_url(""); ?>" title="Passer en mode Light"><i class="fas fa-lightbulb"></i></a></h2>
