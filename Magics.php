@@ -1,49 +1,65 @@
 <?php
+    //initialisation de la session
     session_start();
+    //création d'un tableau associatif avec les variables dont le jeu à besoin (dont le nombre à trouver et tire au sort le joueur qui commence)
     $TableauVariables = array("MagiqueN" => random_int(1, 100), "Min" => 0, "Max" => 101, "Tentatives" => array("1" => 0, "2" =>0), "Joueur" => random_int(1, 2));
+    //vérification si une session a déjà été initialisée (donc si une partie est déjà commencée)
     if (isset($_SESSION["MagicsTab"]))
     {
+        //mettre les variables de la session existante dans la tableau, pour les traiter dans le reste de la page
         $TableauVariables = $_SESSION["MagicsTab"];
     }
+    //on initialise une variable à faux, on la changera si la tentative correspond au nombre à trouver
     $gagne = false;
+    //série de tests à effectuer si un post à effectuer pour arriver sur cette page
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
+        //vérifie si une variable "again" est passé dans le post (donc un des joueurs a cliqué sur Nouvelle Partie)
         if (!empty($_POST["again"]))
         {
+            //création d'un nouveau tableau associatif pour la nouvelle partie
             $TableauVariables = array("MagiqueN" => random_int(1, 100), "Min" => 0, "Max" => 101, "Tentatives" => array("1" => 0, "2" =>0), "Joueur" => random_int(1, 2));
         }
-        else
+        else //si il n'y a pas de variable "again" dans le post (un des joueurs a donc effectué une tentative)
         {
+            //on incrémente de 1 le nombre de tentatives que le joueur qui vient de jouer a testé
             $TableauVariables["Tentatives"][$TableauVariables["Joueur"]]++;
+            //on vérifie si la variable "essai" (qu'a rentré le joueur) est le nombre à trouver
             if ($_POST["essai"] == $TableauVariables["MagiqueN"])
             {
-                //Winning
+                //C'est gagné !!
+                //on change la variable à vrai qui servira à afficher l'écran de victoire
                 $gagne = true;
             }
-            else
+            else //si l'essai pas n'est pas le nombre à trouver
             {
+                //on vérifie si le Joueur 1 vient de jouer
                 if ($TableauVariables["Joueur"] == 1)
                 {
+                    //c'est au Joueur 2 de jouer
                     $TableauVariables["Joueur"] = 2;
                 }
-                else
+                else //le Joueur 2 vient de jouer
                 {
+                    //c'est au Joueur 1 de jouer
                     $TableauVariables["Joueur"] = 1;
                 }
 
+                //on test si l'essai est plus grand que le nombre à trouver
                 if ($_POST["essai"] > $TableauVariables["MagiqueN"])
                 {
+                    //on change la valeur limite haute de la plage où se trouve le nombre à trouver
                     $TableauVariables["Max"] = $_POST["essai"];
-                    $audessus = true;
                 }
-                else
+                else  //si l'essai n'est pas plus grand, donc il est plus petit
                 {
+                    //on change la valeur limite basse de la plage où se trouve le nombre à trouver
                     $TableauVariables["Min"] = $_POST["essai"];
-                    $audessus = false;
                 }
             }
         }
     }
+    //on enregistre les nouvelles variables dans la session
     $_SESSION["MagicsTab"] = $TableauVariables;
 ?>
 <!DOCTYPE html>
@@ -61,22 +77,29 @@
 </head>
 <body>
     <div class="container">
+        <!-- Titre H1 de la page -->
         <div class="row">
             <h1 class="col-12 offset-lg-3 col-lg-6 text-center font-weight-bold">Le Nombre Magique</h1>
         </div>
+        <!-- Sous-titre H2 de la page -->
         <div class="row">
-            <h3 class="col-12 offset-lg-3 col-lg-6 text-center text-muted">Multijoueur</h3>
+            <h2 class="col-12 offset-lg-3 col-lg-6 text-center text-muted">Multijoueur</h2>
         </div>
         <?php
+            //code HTML à afficher si la partie est gagnée
             if ($gagne)
             {
         ?>
+            <!-- écran de victoire, qui affiche le nombre trouvé et le nombre de tentatives que le joueur gagnant a tenté -->
             <div class="row">
                 <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-success">
                     <h2 class="text-success font-weight-bold text-center"><i class="fas fa-trophy"></i> BRAVO <i class="fas fa-trophy"></i></h2>
-                    <?php if ($TableauVariables["Joueur"] == 1) { ?>
+                    <?php //affichage d'une en-tête différente en fonction du joueur qui a gagné
+                    //si le Joueur 1 a gagné
+                    if ($TableauVariables["Joueur"] == 1) { ?>
                         <h3 class="text-primary font-weight-bold text-center"><i class="far fa-user"></i> Joueur 1 <i class="far fa-user"></i></h3>
-                    <?php } else { ?>
+                    <?php } else {
+                    //sinon le Joueur 2 a gagné ?>
                         <h3 class="text-danger font-weight-bold text-center"><i class="far fa-user"></i> Joueur 2 <i class="far fa-user"></i></h3>
                     <?php } ?> 
                     <p>C'est gagné !!<br></p>
@@ -84,9 +107,11 @@
                     <p>Vous avez trouvé en <?php echo $TableauVariables["Tentatives"][$TableauVariables["Joueur"]]; ?> tentatives.</p>
                 </div>
             </div>
+            <!-- formulaire pour lancer une nouvelle partie -->
             <div class="row">
                 <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4" validate>
                     <div class="form-group">
+                        <!-- on met un champ hidden "again" pour que l'algorithme crée une nouvelle partie -->
                         <input type="hidden" name="again" id="again" value="letsgo" required>
                         <button type="submit" class="btn btn-info btn-block" autofocus>
                             <i class="fas fa-dice"></i> Nouvelle Partie
@@ -94,51 +119,71 @@
                     </div>
                 </form>
             </div>
-        <?php 
+        <?php
+            //on nettoie la session car la partie est gagnée
+            //on vide les variables de la session
             $_SESSION = array();
+            //on supprime le cookie de la session
             if (ini_get("session.use_cookies")) 
             {
                 setcookie(session_name(), '', time()-42);
             }
+            //on détruit la session
             session_destroy();
-        }else{ 
+        }else{ //code à afficher à quand une partie commence ou est en cours
+            //création d'une chaîne de caractères qui servira d'expression régulière pour que le joueur ne puisse entrer que les nombres dans la plage du nombre à trouver
+            //on ouvre la chaîne avec une ouverture de parenthèse
             $ExReg = "(";
+            //on fait tourner une boucle pour chaque nombre dans la plage du nombre à trouver
             for ($i = $TableauVariables["Min"] + 1; $i <= $TableauVariables["Max"] - 1; $i++)
             {
+                //on concatène la chaîne existante avec le nombre du tour de boucle, suivi du caractère |
                 $ExReg = $ExReg.$i."|";
             }
+            //on concatène la chaîne existante avec une chaîne impossible à rentrer par le joueur (le champ attend 3 caractères maximum et donc ici on rentre une chaîne de 4 de long), puis une ferme la chaîne avec une fermeture de parenthèse
             $ExReg = $ExReg."code)";
             ?>
+            <!-- écran d'informations, il indique la plage du nombre à trouver -->
             <div class="row">
                 <div class="offset-2 col-8 offset-md-3 col-md-6 offset-lg-4 col-lg-4 alert alert-warning">
                     <h2 class="text-center font-weight-bold">
-                        <?php if ($TableauVariables["Min"] == 0) { ?>
-                        1
-                        <i class="fas fa-less-than-equal"></i>
+                        <?php //affichage de la valeur limite basse
+                        //si la limite basse est celle de défaut, on affiche 1 avec ≤
+                        if ($TableauVariables["Min"] == 0) { ?>
+                            1
+                            <i class="fas fa-less-than-equal"></i>
                         <?php } else {
-                        echo $TableauVariables["Min"]; ?>
-                        <i class="fas fa-less-than"></i>
+                        //sinon on affiche la limite basse avec <
+                            echo $TableauVariables["Min"]; ?>
+                            <i class="fas fa-less-than"></i>
                         <?php } ?>
                         <i class="fas fa-question"></i>
-                        <?php if ($TableauVariables["Max"] == 101) { ?>
-                        <i class="fas fa-less-than-equal"></i>
-                        100
-                        <?php } else { ?>
-                        <i class="fas fa-less-than"></i>
-                        <?php echo $TableauVariables["Max"];
+                        <?php //affichage de la valeur limite haute
+                        //si la limite haute est celle de défaut, on affiche ≤ avec 100
+                        if ($TableauVariables["Max"] == 101) { ?>
+                            <i class="fas fa-less-than-equal"></i>
+                            100
+                        <?php } else {
+                        //sinon on affiche < avec la limite haute ?>
+                            <i class="fas fa-less-than"></i>
+                            <?php echo $TableauVariables["Max"];
                         } ?>
                     </h2>
                 </div>
             </div>
+            <!-- formulaire pour proposer un nombre -->
             <div class="row">
-            <?php if ($TableauVariables["Joueur"] == 1) { ?>
+            <?php //affichage d'une en-tête différente en fonction de quel joueur doit jouer
+            //si c'est au tour du Joueur 1
+            if ($TableauVariables["Joueur"] == 1) { ?>
                 <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-primary" validate>
                     <h2 class="text-center">
                         <i class="fas fa-user"></i>
                         Joueur 1
                     </h2>
                     <div class="form-group text-center">
-            <?php } else { ?>
+            <?php } else {
+            //sinon c'est au tour du Joueur 2 ?>
                 <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-danger" validate>
                     <h2 class="text-center">
                         <i class="fas fa-user"></i>
@@ -156,9 +201,11 @@
                     </div>
                 </form>
             </div>
+            <!-- formulaire pour lancer une nouvelle partie -->
             <div class="row">
                 <form action="" method="POST" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4" validate>
                     <div class="form-group">
+                        <!-- on met un champ hidden "again" pour que l'algorithme crée une nouvelle partie -->
                         <input type="hidden" name="again" id="again" value="letsgo" required>
                         <button type="submit" class="btn btn-info" autofocus>
                             <i class="fas fa-dice"></i> Nouvelle Partie

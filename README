@@ -8,7 +8,7 @@ Magic.php :
 le jeu du Nombre Magique écrit entièrement en PHP.
 
 Magics.php :
-le jeu du Nombre Magique à deux joueurs écrit entièrement en PHP. (pas encore commenté)
+le jeu du Nombre Magique à deux joueurs écrit entièrement en PHP.
 quand le jeu commence, il choisi au hasard si le Joueur 1 ou 2 commence.
 
 ci3 :

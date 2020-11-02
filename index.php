@@ -15,7 +15,9 @@
     <div class="container">
         <!-- Titre H1 de la page -->
         <div class="row">
-            <h1 class="col-12 offset-lg-3 col-lg-6 text-center font-weight-bold">Accueil Nombre Magique <a class="text-dark" href="https://github.com/Randommer/NombreMagic"><i class="fab fa-github"></i></a></h1>
+            <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 offset-xl-4 col-xl-4">
+                <h1 class="text-center font-weight-bold">Accueil Nombre Magique <a class="text-dark" href="https://github.com/Randommer/NombreMagic"><i class="fab fa-github"></i></a></h1>
+            </div>
         </div>
         <div class="row">
             <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4 alert alert-primary">

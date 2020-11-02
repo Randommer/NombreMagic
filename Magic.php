@@ -39,7 +39,7 @@
                     //on change la valeur limite haute de la plage où se trouve le nombre à trouver
                     $TableauVariables["Max"] = $_POST["essai"];
                 }
-                else //si l'essai n'est pas plus grand, donc il est plus petit.
+                else //si l'essai n'est pas plus grand, donc il est plus petit
                 {
                     //on change la valeur limite basse de la plage où se trouve le nombre à trouver
                     $TableauVariables["Min"] = $_POST["essai"];
@@ -126,23 +126,23 @@
                         <?php //affichage de la valeur limite basse
                         //si la limite basse est celle de défaut, on affiche 1 avec ≤
                         if ($TableauVariables["Min"] == 0) { ?>
-                        1
-                        <i class="fas fa-less-than-equal"></i>
+                            1
+                            <i class="fas fa-less-than-equal"></i>
                         <?php } else {
                         //sinon on affiche la limite basse avec <
-                        echo $TableauVariables["Min"]; ?>
-                        <i class="fas fa-less-than"></i>
+                            echo $TableauVariables["Min"]; ?>
+                            <i class="fas fa-less-than"></i>
                         <?php } ?>
                         <i class="fas fa-question"></i>
                         <?php //affichage de la valeur limite haute
                         //si la limite haute est celle de défaut, on affiche ≤ avec 100
                         if ($TableauVariables["Max"] == 101) { ?>
-                        <i class="fas fa-less-than-equal"></i>
-                        100
+                            <i class="fas fa-less-than-equal"></i>
+                            100
                         <?php } else {
                         //sinon on affiche < avec la limite haute ?>
-                        <i class="fas fa-less-than"></i>
-                        <?php echo $TableauVariables["Max"];
+                            <i class="fas fa-less-than"></i>
+                            <?php echo $TableauVariables["Max"];
                         } ?>
                     </h2>
                 </div>
