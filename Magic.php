@@ -108,16 +108,16 @@
             session_destroy();
         }else{ //code à afficher à quand une partie commence ou est en cours
             //création d'une chaîne de caractères qui servira d'expression régulière pour que le joueur ne puisse entrer que les nombres dans la plage du nombre à trouver
-            //on ouvre la chaîne avec une ouverture de parenthèse
-            $ExReg = "(";
-            //on fait tourner une boucle pour chaque nombre dans la plage du nombre à trouver
-            for ($i = $TableauVariables["Min"] + 1; $i <= $TableauVariables["Max"] - 1; $i++)
+            //on ouvre la chaîne avec une ouverture de parenthèse puis le premier nombre de la plage du nombre à trouver
+            $ExReg = "(".($TableauVariables["Min"] + 1);
+            //on fait tourner une boucle pour chaque nombre suivant dans la plage du nombre à trouver
+            for ($i = $TableauVariables["Min"] + 2; $i <= $TableauVariables["Max"] - 1; $i++)
             {
-                //on concatène la chaîne existante avec le nombre du tour de boucle, suivi du caractère |
-                $ExReg = $ExReg.$i."|";
+                //on concatène la chaîne existante avec le caractère |, suivi du nombre du tour de boucle
+                $ExReg = $ExReg."|".$i;
             }
-            //on concatène la chaîne existante avec une chaîne impossible à rentrer par le joueur (le champ attend 3 caractères maximum et donc ici on rentre une chaîne de 4 de long), puis une ferme la chaîne avec une fermeture de parenthèse
-            $ExReg = $ExReg."code)";
+            //on concatène la chaîne existante avec une fermeture de parenthèse
+            $ExReg = $ExReg.")";
             ?>
             <!-- écran d'informations, il indique la plage du nombre à trouver -->
             <div class="row">
